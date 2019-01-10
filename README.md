@@ -1,6 +1,6 @@
 # PyTorch_Projects
 
-## Pretrained model repository for Heterogeneous Architecture Models on Pytorch/CUDA
+## Pretrained model repository for Heterogeneous Architecture Models on Pytorchwith CPU/CUDA
 
 ### Dependencies 
 
@@ -11,7 +11,7 @@
 * Torchvision 0.2.1
 * Matplotlib 2.2.3
 
-** NOTE : Jetson TX2 Development kit (Nvidia Tegra X2 GPU) with Jetpack 3.3 is used for these results **
+**NOTE : Jetson TX2 Development kit (Nvidia Tegra X2 GPU) with Jetpack 3.3 is used for these results**
 
 ### Timeline Logbook
 
