@@ -21,7 +21,7 @@ python Model.py --help
 
 Example:
 cd AlexNet
-python AlexNet.py --gpu 1 --file /Path/to/Model/Folder 
+python AlexNet.py --gpu 1 --file cat.jpg
 
 ### Timeline Logbook
 
