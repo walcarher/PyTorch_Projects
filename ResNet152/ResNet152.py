@@ -1,4 +1,4 @@
-import sys
+import argparse
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -10,22 +10,23 @@ from PIL import Image
 import time
 
 
-# --gpu-enable 1 (True) 0 (False) Runs the whole model and input on main GPU device 
-if(sys.argv[1] == '--gpu-enable'):
-	if(sys.argv[2] == '1'):
-		cuda_mode = True
-	else:
-		cuda_mode = False
-else:
-	print('Error : No argument passed for CPU/GPU running mode')
-	sys.exit()
+# Argument configuration
+parser = argparse.ArgumentParser()
+parser.add_argument("-g", "--gpu", type = int, choices=[0, 1],
+		 help = "enables gpu mode for inference 0 (default) for CPU mode and 1 for GPU mode",
+		 default = 0)
+parser.add_argument("-f", "--file", type = str,
+		 help = "image file for inference testing by default cat.jpg sample",
+		 default = "cat.jpg")
+args = parser.parse_args()
+
 
 # Using pretained model for Forward pass evaluation in platform
 resNet152 = models.resnet152(pretrained = True)
 resNet152.eval()
 
 # Check for CUDA availability
-if(torch.cuda.is_available() & cuda_mode):
+if(torch.cuda.is_available() & args.gpu):
 	if(not torch.cuda.is_available()): 
 		print('Error : No GPU available on the system')
 		sys.exit()
@@ -38,16 +39,16 @@ else:
 	print('Running inference on CPU mode')
 
 
-# Normalize input WARNING: Check if input image is really normalized
+# Normalize and Resize input 
 loader = transforms.Compose([transforms.Resize(size=(224,224)),transforms.ToTensor(),transforms.Normalize(mean=[0.485, 0.456, 0.406],std=[0.229, 0.224, 0.225])])
-input = Image.open('cat.jpg','r')
+input = Image.open(args.file,'r')
 plt.imshow(np.asarray(input))
 input = loader(input)
 # Change to BatchxChannelxHeightxWidth (1xCxHxW) for inference
 input = input.unsqueeze(0)
 
 # Test inference time on a single input image on GPU or CPU 
-if(torch.cuda.is_available() & cuda_mode):
+if(torch.cuda.is_available() & args.gpu):
 	# Wait until device is finished on every Kernel
 	torch.cuda.synchronize()
 	start = time.time()
