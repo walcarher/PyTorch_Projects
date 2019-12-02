@@ -1,5 +1,7 @@
 # PyTorch_Projects
 
+[![DOI](https://zenodo.org/badge/165066433.svg)](https://zenodo.org/badge/latestdoi/165066433)
+
 ## Pretrained model repository for Heterogeneous Architecture Models on Pytorchwith CPU/CUDA
 
 ### Dependencies 
@@ -34,5 +36,3 @@ python AlexNet.py --gpu 1 --file cat.jpg
 ### License
 
 MIT License
-
-[![DOI](https://zenodo.org/badge/165066433.svg)](https://zenodo.org/badge/latestdoi/165066433)
