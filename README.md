@@ -30,3 +30,7 @@ python AlexNet.py --gpu 1 --file cat.jpg
 * 23/01/2019 : Able to get video/images from terminal using CSI Camera. However, Gstreamer is not supported by current OpenCV L4T version on Jetson TX2. OpenCV must be recompiled supporting Gstreamer
 
 * 13/10/2019 : Added GPU power consumption graphics
+
+### License
+
+MIT License
