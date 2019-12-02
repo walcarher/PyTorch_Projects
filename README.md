@@ -28,3 +28,5 @@ python AlexNet.py --gpu 1 --file cat.jpg
 * 10/01/2019 : Currently just partitioning between CPU/GPU per layer on LeNet5 and Fully CPU or fully GPU on AlexNet and ResNet(152)
 
 * 23/01/2019 : Able to get video/images from terminal using CSI Camera. However, Gstreamer is not supported by current OpenCV L4T version on Jetson TX2. OpenCV must be recompiled supporting Gstreamer
+
+* 13/10/2019 : Added GPU power consumption graphics
