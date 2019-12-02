@@ -34,3 +34,5 @@ python AlexNet.py --gpu 1 --file cat.jpg
 ### License
 
 MIT License
+
+[![DOI](https://zenodo.org/badge/165066433.svg)](https://zenodo.org/badge/latestdoi/165066433)
